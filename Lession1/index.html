@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="dataStatus.isShow">{{title}} - {{author}} - {{age}}</p>
+      <!-- click event -->
+      <button v-on:click="age++">Age +</button>
+      <button v-on:click="age--">Age -</button>
+      <button @click="changeTitle">Change title</button>
+      <!-- toggle content of data-->
+      <button @click="toggleData">
+        Data is:
+        <!-- conditional redering -->
+        <span v-if="dataStatus.isShow">show</span>
+        <span v-else>hide</span>
+      </button>
+      <br />
+      <!-- mouse events -->
+      <div class="box" v-on:mouseover="handleEvent($event)">mouseover</div>
+      <div class="box" v-on:mouseleave="handleEvent">mouseleave</div>
+      <div class="box" @click="handleEvent">double click</div>
+      <div class="box" @mousemove="handleSetPosition">
+        Mouse Move to
+        <div>current position: {{position.x}} - {{position.y}}</div>
+      </div>
+      <!-- outputing list -->
+      <div>------------------------Book List---------------------------</div>
+      <ul>
+        <li v-for="book in filterBook">
+          <span v-bind:class="{fav: book.isFav}"
+            >{{book.id}} - {{book.title}} - {{book.author}} - {{book.age}}</span
+          >
+          <button @click="handleToggleFavBook(book)">Toggle Fav Book</button>
+        </li>
+      </ul>
+      <!-- attribute binding -->
+      <div>
+        attribute binding
+        <a v-bind:href="url">link to the google</a>
+      </div>
+    </div>
+  </body>
+  <script src="./app.js"></script>
+</html>

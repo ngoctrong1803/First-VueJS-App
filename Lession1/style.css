@@ -1,0 +1,24 @@
+.box {
+    width: 300px;
+    height: 100px;  
+    padding: 50px;
+    border: 1px solid red;
+    text-align: center;
+    background-color: aliceblue;
+    display: inline-block;
+    margin: 10px;
+  }
+span{
+    background-color: blanchedalmond;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+li{
+    margin-top: 15px;
+}
+span.fav{
+    background-color: rgb(130, 254, 213)!important;
+    padding: 5px;
+    border-radius: 5px;
+}
